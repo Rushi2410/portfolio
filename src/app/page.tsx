@@ -89,6 +89,22 @@ const certifications = [
 
 const languages = ["English", "Hindi", "Marathi"];
 const interests = ["Gaming", "Outdoor sports"];
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rushikesh-andhale.vercel.app";
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Rushikesh Vitthal Andhale",
+  alternateName: "Rushikesh Andhale",
+  jobTitle: "Full Stack Web Developer",
+  url: siteUrl,
+  image: `${siteUrl}/profile.jpeg`,
+  email: "mailto:rushikeshandhale1010@gmail.com",
+  sameAs: [
+    "https://github.com/Rushi2410",
+    "https://linkedin.com/in/rushikesh-andhale-4535182a7",
+  ],
+  knowsAbout: ["MERN Stack", "React.js", "Node.js", "MongoDB", "REST APIs", "JavaScript"],
+};
 
 function Logo({ className }: { className?: string }) {
   return (
@@ -207,6 +223,11 @@ export default function Home() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+
       <a className="skip-to-content" href="#content">
         Skip to content
       </a>
@@ -456,7 +477,7 @@ export default function Home() {
       </main>
 
       <footer className="py-10 text-center text-light-slate text-sm">
-        <p>Built by Rushikesh Andhale · Inspired by Brittany Chiang</p>
+        <p>Built by Rushikesh Andhale</p>
       </footer>
     </>
   );

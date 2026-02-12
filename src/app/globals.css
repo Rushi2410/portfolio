@@ -53,6 +53,7 @@
   html {
     box-sizing: border-box;
     width: 100%;
+    overflow-x: clip;
     scroll-behavior: smooth;
   }
 
@@ -71,7 +72,7 @@
     margin: 0;
     width: 100%;
     min-height: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
     background-color: var(--navy);
     color: var(--slate);
     font-family: var(--font-sans);
@@ -112,7 +113,7 @@
 
   @media (max-width: 480px) {
     main {
-      padding: 125px 25px;
+      padding: 110px 16px;
     }
     section {
       padding: 60px 0;
@@ -216,6 +217,12 @@
   }
 
   @media (max-width: 768px) {
+    .numbered-heading {
+      flex-wrap: wrap;
+      gap: 6px 0;
+      white-space: normal;
+    }
+
     .numbered-heading::after {
       width: 100%;
     }
@@ -223,6 +230,7 @@
 
   @media (max-width: 600px) {
     .numbered-heading::after {
+      width: 100%;
       margin-left: 10px;
     }
   }
@@ -408,7 +416,7 @@
     top: 0;
     right: 0;
     height: 100vh;
-    width: min(75vw, 400px);
+    width: min(85vw, 380px);
     background-color: var(--light-navy);
     box-shadow: -10px 0 30px -15px var(--navy-shadow);
     padding: 100px 50px;
@@ -448,6 +456,13 @@
 
     .nav-inner {
       padding: 0 25px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .mobile-menu {
+      width: 100%;
+      padding: 90px 24px 30px;
     }
   }
 
@@ -612,7 +627,7 @@
     font-size: var(--fz-xs);
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     .jobs-inner {
       display: block;
     }
@@ -620,16 +635,17 @@
     .job-tabs {
       display: flex;
       overflow-x: auto;
-      width: calc(100% + 100px);
-      padding-left: 50px;
-      margin-left: -50px;
+      width: 100%;
+      padding-left: 0;
+      margin-left: 0;
       margin-bottom: 30px;
     }
 
     .job-tab {
-      min-width: 120px;
+      min-width: max-content;
       border-left: 0;
       border-bottom: 2px solid var(--lightest-navy);
+      padding: 0 16px 2px;
       justify-content: center;
       text-align: center;
     }
@@ -779,7 +795,7 @@
 
     .project-content {
       grid-column: 1 / -1;
-      padding: 40px 40px 30px;
+      padding: 32px 24px 24px;
       text-align: left;
     }
 
@@ -795,6 +811,13 @@
 
     .project-tech {
       justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .project-description {
+      padding: 18px;
+      font-size: var(--fz-md);
     }
   }
 
@@ -864,6 +887,16 @@
     .hero-image-wrap {
       order: -1;
       margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-wrap {
+      gap: 20px;
+    }
+
+    .hero-image-wrap {
+      width: min(240px, 72vw);
     }
   }
 
